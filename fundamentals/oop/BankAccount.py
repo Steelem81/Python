@@ -1,4 +1,4 @@
-class BankAccount:
+class BankAccount():
 
     def __init__(self, int_rate, balance): 
         self.balance = balance
@@ -21,5 +21,5 @@ class BankAccount:
 
 account1, account2 = BankAccount(100, .3), BankAccount(500, .1)
 
-account1.deposit(20).deposit(400).deposit(50).withdraw(100).display_account_info()
+account1.deposit(20)
 
