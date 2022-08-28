@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}User Update{% endblock %}
+{% block content %}
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>Edit User {{ updated_user.id }}</h1>
+        <a href='/users'>Home</a>
+    </div>
+    <form action='/update_user' method='post'>
+        <input type="hidden" name="user_id" value={{ updated_user.id }}>
+        <div class="mb-3">
+            <label for="fname" class="form-label">First Name:</label>
+            <input type="text" id="fname" name='fname' class="form-control" value= {{ updated_user.first_name }}>
+        </div>
+        <div class="mb-3">
+            <label for="lname" class="form-label">Last Name:</label>
+            <input type="text" id="lname" name="lname" class="form-control" value= {{ updated_user.last_name }}>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" id="email" name="email" class="form-control" value= {{ updated_user.email }}>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+{% endblock %}
