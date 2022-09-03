@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>New Ninja</h1>
+<form action="/ninja/new" method="post">
+    <label for="dojo_id" class="form-label">Dojo:</label>
+    <select name="dojo_id" id="dojo_id" class="form-control">
+        {% for dojo in dojos %}
+            <option value={{ dojo.id }}>{{ dojo.name }}</option>
+        {% endfor %}
+    </select>
+    <label for="first_name" class="form-label">First Name:</label>
+    <input type="text" name="first_name" id="first_name" class="form-control">
+    <label for="last_name" class="form-label">Last Name:</label>
+    <input type="text" name="last_name" id="last_name" class="form-control">
+    <label for="age" class="form-label">Age:</label>
+    <input type="text" name="age" id="age" class="form-control">
+    <button class="btn btn-primary" type="submit">Add Ninja</button>
+</form>'
+{% endblock %}

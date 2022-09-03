@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container d-flex justify-content-between">
+        <div class="container bg-dark col-4 p-3">
+            <h2 class='text-primary'>New Dojo</h2> 
+            <form action='/dojo/new' method="post">
+                <div class="mb-3">
+                    <label for='dojo_name' class="form-label">Name:</label>
+                    <input type='text' class='form-control' id='dojo_name' name="dojo_name">
+                </div>
+                <button type='submit' class="btn btn-primary">New Dojo</button>
+            </form>
+        </div>
+        <div class="container bg-dark text-center col-4 p-3">
+            <h2 class = 'text-primary'>All Dojos</h2>
+            {% for dojo in dojos_list: %}
+                <a href="/dojo/{{ dojo.id }}" class='text-warning'>{{ dojo.name }}</p>
+            {% endfor %}
+        </div>
+    </div>
+    <a href='/ninja/add' class='btn btn-primary'>New Ninja</a>
+{% endblock %}
