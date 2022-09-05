@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container d-flex">
+    <div class="container col-4 p-3">
+        <h2>New Book</h2>
+        <form action = 'book/new' method="post">
+            <div class="mb-3">
+                <label for="book_title" class="form-label">Title:</label>
+                <input type="text" name="book_title" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="num_of_pages" class="form_label">Number of Pages:</label>
+                <input type="text" name="num_of_pages" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+    </div>
+    <div class="container col-4 p-3">
+        <h2>All Books</h2> 
+        <table class="table table-striped table-bordered">
+            {% for book in all_books %}
+                <tr>
+                    <td><a href='/book/{{book.id}}'>{{book.title}}</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+<a href="/authors">Home</a>
+{% endblock %}

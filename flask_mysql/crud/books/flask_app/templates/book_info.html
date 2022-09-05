@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container d-flex">
+    <div class="container col-4 p-3">
+        <h2>Title: {{book.title}}</h2>
+        <h3>Favorited Authors</h3> 
+        <table class="table table-striped table-bordered">
+            {% for author in book.authors_favorited %}
+                <tr>
+                    <td>{{author.name}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="container col-4 p-3">
+        <h2>Add Author Favorite</h2>
+        <form action="/book/add_favorite" method="post">
+            <div class="mb-3">
+                <input type="hidden" name="book_id" value={{book.id}}>
+                <label for="author_id" class="form-label">Author:</label>
+                <select id="author_id" name="author_id" class="form-control">
+                    {% for author in all_authors %}
+                        <option value={{author.id}}>{{author.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+    </div>
+</div>
+<a href="/books">Home</a>
+{% endblock %}
