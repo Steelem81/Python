@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% include "nav.html" %}
+{% block content %}
+<h1>Add a new recipe</h1>
+{% with messages = get_flashed_messages(category_filter = 'recipe') %}
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{message}}</p>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+<div class="container">
+    <form action = "/recipes/update" method="post">
+        <div class="container d-flex justify-content-evenly mb-3">
+            <div class = "col-6">
+                <input type="hidden" name="id" value="{{recipe.id}}" />
+                <label for="name" class="form-label" >Name:</label>
+                <input type="text" class="form-control" id="name" name="name" value={{recipe.name}}>
+                <label for="description" class="form-label">Description:</label>
+                <textarea class="form-control" id="description" name="description" rows="3" >{{recipe.description}}</textarea>
+                <label for="instructions" class="form-label">Instructions:</label>
+                <textarea class="form-control" id="instructions" name="instructions" rows="3" >{{recipe.instructions}}</textarea>
+            </div>
+            <div class="col-3 d-flex flex-column justify-content-evenly">
+                <label for="made_at" class="form-label">Date made:</label>
+                <input type="date" class="form-control" id="made_at" name="made_at" value={{recipe.created_at}}>
+                
+                <div>
+                    <label for="under30_options" class="form-label">Under 30 min?</label>
+                    <div>
+                        <input class="form-check-input" type="radio" id="under30_true" name="under_30" value='1'>
+                        <label class="form-check-label" for="under30_true" class="form-label">Yes</label>
+                        <input class="form-check-input" type="radio" id="under30_false" name="under_30" value='0'>
+                        <label class="form-check-label" for="under30_false" class="form-label">No</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <button type="submit" class="btn btn-success">Update Recipe</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex">
+    <div class="me-auto">
+        <h2> Welcome {{session['first_name']}}</h2>
+        <h4>Posted Recipes</h4>
+    </div>
+    <div class="p-2">
+        <a href="/recipes/new" class = "btn btn-primary">+ Create</a>
+        <a href='/logout' class='btn btn-success'>Logout</a>
+    </div>
+    </div>
+<table class="table table-striped">
+    <thead>
+        <th>Name</th>
+        <th>Under</th>
+        <th>Posted By</th>
+        <th>Actions</th>
+    </thead>
+    {% for recipe in all_recipes %}
+        <tr>
+            <td>{{recipe.name}}</td>
+            <td>{{recipe.under_30}}</td>
+            <td>{{recipe.user['first_name']}} {{recipe.user['last_name']}}</td>
+            {% if recipe.user_id == session['user_id'] %}
+                <td><a href='/recipes/{{recipe.id}}'>View</a> | <a href='/recipes/edit/{{recipe.id}}'>Edit</a> | <a href='/recipes/delete/{{recipe.id}}'>Delete</a></td>
+            {% else %}
+                <td><a href='/recipes/{{recipe.id}}'>View Recipe</a></td>
+            {% endif %}
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}

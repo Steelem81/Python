@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+{% include "nav.html" %}
+<h1>{{recipe.name}}</h1>
+<h3>Posted By: {{recipe.user.first_name}} {{recipe.user.last_name}}</h3>
+<div class="container col-10 p-3 border">
+    <table class="table">
+        <tr>
+            <td>Description</td>
+            <td>{{recipe.description}}</td>
+        </tr>
+        <tr>
+            <td>Under 30</td>
+            {% if recipe.under_30 == 1 %}
+                <td>Yes</td>
+            {% else %}
+                <td>No</td>
+            {% endif %}
+        </tr>
+        <tr>
+            <td>Instructions</td>
+            <td>{{recipe.instructions}}</td>
+        </tr>
+        <tr>
+            <td>Date Made</td>
+            <td>{{recipe.created_at}}</td>
+        </tr>
+    </table>
+
+
+</div>
+
+{% endblock %}

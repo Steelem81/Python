@@ -1,0 +1,14 @@
+
+{% block nav %}
+<div class="d-flex">
+    <div class="me-auto">
+        <h2>Welcome {{session['first_name']}}</h2>
+    </div>
+    <div class="p-2">
+        <div>
+            <a href="/recipes" class="btn btn-primary">Recipes</a>
+            <a href="/logout" class='btn btn-success'>Logout</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
