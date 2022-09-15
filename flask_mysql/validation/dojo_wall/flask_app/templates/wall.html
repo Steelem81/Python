@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+{% include "nav.html" %}
+<div class="d-flex flex-column">
+    <p>What's on your mind? Create a new post:</p>
+    {% with messages = get_flashed_messages(category_filter = 'post') %}
+        {% if messages %}
+            {% for message in messages %}
+                <p class="text-danger">* {{message}}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <form action="/posts/publish" method="post">
+        <textarea rows="5" class="form-control mb-3" name="content"></textarea>
+        <button type="submit" class="btn btn-primary float-end">Publish</button>
+    </form>
+</div>
+<hr>
+<div class="container">
+    {% if all_posts %}
+        {% for post in all_posts %}
+            <div class="d-flex mb-3 flex-column">
+                <div class="d-flex align-items-center">
+                <div class="flex-grow-1 border border-2 m-3 p-3">
+                    <h4 class="mb-2">{{post.user.first_name}} - {{post.created_at}}</h4>
+                    <p class="ms-5">{{post.content}}</p>
+                </div>
+                <div class="ms-auto m-3">
+                    {% if post.user.id == session['user_id'] %}
+                        <a href="/posts/delete/{{post.id}}" class="btn btn-danger">delete</a>
+                    {% endif %}
+                    </div>
+                </div>
+                <div class="col-8 offset-md-3">
+                    {% if post.comment|length > 0 %}
+                        {% for comment in post.comment %}
+                            <hr>
+                            <p>{{comment}}</p>
+                        {% endfor %}
+                    {% endif %}
+                        <div class="p-1">
+                            <p class="text-primary">Post a comment:</p>
+                            <form action="posts/comment" method="post">
+                                <input type="hidden" name="post_id" value={{post.id}}>
+                                <textarea class="form-control mb-3" name="comment"></textarea>
+                                <button type="submit" class="btn btn-success float-end">Comment</button>
+                            </form>
+                        </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+            <h3>No Posts to show</h3>
+    {% endif %}
+</div>
+
+{% endblock %}

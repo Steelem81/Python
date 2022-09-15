@@ -1,0 +1,17 @@
+{% block nav %}
+    <div class="container d-flex">
+    <h2>Coding Dojo Wall</h2>
+        {% if session['user_id'] %}
+            <div class="ms-auto d-flex col-3">
+                <div class="m-3">
+                    <p>Welcome, {{ session['first_name'] }}</p>
+                </div>
+                <div class="m-3">
+                    <a href="/users/logout">Logout</a>
+                </div>
+            </div>
+        {% endif %}
+
+    </div>
+    <hr>
+{% endblock %}
