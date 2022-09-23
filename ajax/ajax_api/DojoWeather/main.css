@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    width: 1080px;
+    margin: 0 auto;
+}
+
+.nav {
+    height: 100px;
+    background-color: rgb(159,197,248);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.nav-title{
+    margin-right: 20px;
+}
+
+.nav-links{
+    width: 45%;
+
+}
+
+.nav-links > ul {
+    font-size: 24px;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.citytop {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0px;
+    padding: 10px 20px;
+    align-items: center;
+}
+
+.temp-select {
+    display: flex;
+    align-items: center;
+}
+
+#temp-choice {
+    /* height: 30px; */
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.forecast {
+    display: flex;
+}
+
+.forecast-card {
+    height: 500px;
+    padding: 20px;
+    background-color: lightgrey;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.forecast-card > h3 {
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.temps {
+    width: 100%;
+    padding: 20px;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+
+}
+
+.high {
+    color: red;
+}
+
+.low {
+    color: blue;
+}
+
+.weather-icon {
+    border-radius: 50%;
+    width: 80%;
+}
+
+.cookie-policy-message {
+    padding: 10px;
+    height: 100px;
+    width: 1080px;
+    border: 5px solid black;
+    background-color: lightgrey;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    bottom: 5px;
+
+}
+
+.message-text {
+    margin: 10px;
+}
+
+.accept {
+    height: 30px;
+    width: 80px;
+    background-color: rgb(159,197,248);
+    border: 2px solid black;
+    box-shadow: 5px 5px black;
+    /* padding: 5px; */
+}
+

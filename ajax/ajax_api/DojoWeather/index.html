@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./main.css">
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <div class="nav-title">
+                <h1>DojoWeather</h1>
+            </div>
+            <div class="nav-links">
+                <ul class="cities">
+                    <li><button class='city'>Burbank</button></li>
+                    <li><button class='city'>Chicago</button></li>
+                    <li><button class='city'>Dallas</button></li>
+                </ul>
+            </div>
+        </div>
+        <div class="cityfeed">
+            <div class="citytop">
+                <div class="citytitle">
+                    <h2>San Jose</h2>
+                </div>
+                <div class="temp-select">
+                    <label for="temp">show temperature in </label>
+                    <select name="temp" id = "temp-choice">
+                        <option value="F">F<span class=degree>&#176;</span></option>
+                        <option value="C" selected>C<span class=degree>&#176;</span></option>
+                    </select>
+                </div>
+            </div>
+            <hr>
+            <div class="forecast">
+                <div class="forecast-card">
+                    <h3>Today</h3>
+                    <img src="./assets/some_rain.png" alt="some_rain" class="weather-icon">
+                    <p>some rain</p>
+                    <div class="temps">
+                        <span class="high">24<span class=degree>&#176;</span></span>
+                        <span class="low">18<span class=degree>&#176;</span></span>
+                    </div>
+                </div>
+                <div class="forecast-card">
+                    <h3>Tomorrow</h3>
+                    <img src="./assets/some_sun.png" alt="some_sun" class="weather-icon">
+                    <p>some sun</p>
+                    <div class="temps">
+                        <span class="high">27<span class=degree>&#176;</span></span>
+                        <span class="low">19<span class=degree>&#176;</span></span>
+                    </div>
+                </div>
+                <div class="forecast-card">
+                    <h3>Friday</h3>
+                    <img src="./assets/some_clouds.png" alt="some_clouds" class="weather-icon">
+                    <p>some clouds</p>
+                    <div class="temps">
+                        <span class="high">21<span class=degree>&#176;</span></span>
+                        <span class="low">16<span class=degree>&#176;</span></span>
+                    </div>
+                </div>
+                <div class="forecast-card">
+                    <h3>Saturday</h3>
+                    <img src="./assets/some_sun.png" alt="some_sun" class="weather-icon">
+                    <p>some sun</p>
+                    <div class="temps">
+                        <span class="high">26<span class=degree>&#176;</span></span>
+                        <span class="low">21<span class=degree>&#176;</span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="cookie-policy-message">
+                <img src="./assets/cookie.png" alt="cookie">
+                <div class="message-text">
+                    <h4>Stop! Cookie time</h4>
+                    <p>We use cookies (sadly not the edible ones) to personalize content and ads, to provide soial media features, and to analyze our traffic <a href="#">Read more...</a></p>
+                </div>
+                <button class="accept" type="button">I Accept</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
